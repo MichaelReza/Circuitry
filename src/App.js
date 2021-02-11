@@ -7,6 +7,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 import './App.css'
+import firebase from 'firebase'
 
 import { createDemoBoard } from './circuit-boards/demo-board'
 
@@ -53,6 +54,9 @@ const App = () => {
     <section className="App">
       <header></header>
       <main ref={viewport}></main>
+      <code>
+        <pre>{JSON.stringify(firebaseApp.options, null, 2)}</pre>
+      </code>
     </section>
   )
 }

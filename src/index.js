@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import firebase from 'firebase/app'
+
+firebase.initializeApp({
+  apiKey: "AIzaSyAbr6VLtQpRktIrAm9biEQpOU2hjGAZadQ",
+  authDomain: "circuitry-c4337.firebaseapp.com",
+  projectId: "circuitry-c4337",
+  storageBucket: "circuitry-c4337.appspot.com",
+  messagingSenderId: "238701717359",
+  appId: "1:238701717359:web:4610da3738e79c477dea9a",
+  measurementId: "G-3ZTK3TZ3YL"
+})
 
 ReactDOM.render(
   <React.StrictMode>
