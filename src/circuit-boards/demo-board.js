@@ -14,7 +14,7 @@ import { Straight, ThreeWay, FourWay, Corner, DeadEnd } from '../components/wire
 import CPU from '../components/cpu'
 
 const DEFAULT_ROTATION_RATE = 0.2
-const DEFAULT_START_POSITION = [5,5] // [X, Z]
+const DEFAULT_START_POSITION = [9,9] // [X, Z]
 const DEFAULT_BOARD_UNITS = 2 // universe coordinate units
 const DEFAULT_BOARD_WIDTH = 20
 const DEFAULT_BOARD_DIMENSIONS = DEFAULT_BOARD_WIDTH / DEFAULT_BOARD_UNITS
@@ -23,6 +23,7 @@ const createDemoBoard = ({ fieldOfView, width, height, nearPlane, farPlane }) =>
   const scene = new Scene()
   const camera = new PerspectiveCamera(fieldOfView, width / height, nearPlane, farPlane)
   const playerLocation = DEFAULT_START_POSITION
+  let paused = false
 
   const fans = []
   // location of the tiles will be the indeces in this array
@@ -90,6 +91,10 @@ const createDemoBoard = ({ fieldOfView, width, height, nearPlane, farPlane }) =>
   function onDocumentKeyDown(event) {
     event.preventDefault()
     if (validMove(event.which)) player.move(event.which)
+    if (event.which == 80 && paused) {
+      paused = false; 
+      window.requestAnimationFrame(animate)
+    } else if (event.which == 80 && !paused) paused = true
   }
 
   const validMove = (key) => {
@@ -114,7 +119,10 @@ const createDemoBoard = ({ fieldOfView, width, height, nearPlane, farPlane }) =>
   var winner = false
 
   const animate = () => {
-    window.requestAnimationFrame(animate)
+    if (!paused) window.requestAnimationFrame(animate)
+    else {
+      // renderer.render(menu)
+    }
     // Player movement/animations
     if (!winner) {
       player.position.x = player.location[0] * DEFAULT_BOARD_UNITS

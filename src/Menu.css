@@ -1,0 +1,48 @@
+.menu__background {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+}
+
+.menu__content {
+  display: flex;
+  width: 50%;
+  height: 70%;
+  padding: 2rem 4rem;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.menu__content button {
+  display: flex;
+  width: 50%;
+  height: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu__content button:active {
+  color: rgba(150, 150, 150, 1);
+  border: 1px solid rgba(150, 150, 150, 1);
+}
+
+.menu__description {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
